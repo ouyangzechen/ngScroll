@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="reset.css"/>
+<link rel="stylesheet" href="pullToRefresh.css"/>
+
+<script src="jquery.js"></script>
+<script src="iscroll.js"></script>
+<script src="pullToRefresh.js"></script>
+<script src="angular.min.js"></script>
+<script src="main.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no" />
+    <style>
+
+
+        body, html {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            font-family: Arial, Microsoft YaHei;
+            color: #111;
+            overflow: auto;
+        }
+        li {
+            /*border-bottom: 1px #CCC solid;*/
+            /*text-align: center;*/
+            /*line-height: 80px;*/
+        }
+        #wrapper div h5{
+            color: #F65B38;
+            margin-top: 3%;
+            margin-left: 4%;
+            margin-bottom: 0;
+
+        }
+        #wrapper div p{
+            margin-left: 4%;
+            font-size: small;
+            margin-top: 2%;
+            margin-bottom: 0;
+
+        }
+        #wrapper div span{
+            margin-left: 4%;
+            font-size: 10px;
+            margin-top: 1%;
+            color: #AEA8A8;
+        }
+        .respones{
+
+            margin-left: 4%;
+            margin-right: 4%;
+            height: auto;
+            margin-top: 3%;
+            border-radius: 2px;
+
+        }
+        .respones textarea {
+            border: 1px solid #E58B56;
+            border-radius: 2px;
+            width: 100%;
+            z-index: 100;
+        }
+        .submit{
+            display: block;
+            background-color: #FA9B9B;
+            margin-left: 4%;
+            margin-right: 4%;
+            margin-top: 8px;
+            margin-bottom: 18px;
+            border-radius: 4px;
+            text-align: center;
+            color: rgb(166,68,37);
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+        .text{
+        	position: absolute;
+        	bottom: 0;
+    	    margin-left: 4%;
+		    margin-right: 4%;
+		    height: auto;
+		    margin-top: 3%;
+		    z-index: 100;
+		    border-radius: 2px;
+        }
+
+        *:not(input,textarea) {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+        }
+        #respones {
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: beige;
+        }
+        .respone{
+            padding-top: 5px;
+            background: rgb(250, 155, 155);
+            color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body ng-app="directive" ng-controller="main">
+<!--must content ul li,or shoupi-->
+<scroll ng-model="sa" ng-Load-More="loadMore">
+  <!--<ul>-->
+
+    <!--<li  data-edit="0">-->
+        <!--<div   name='contents' style='border: 1px solid #D1D0D0;margin-top: 20px;height: auto;border-radius: 10px;'>-->
+        <!--<h5 style="color:red">西风笑</h5>-->
+        <!--<p>加载内容</p>-->
+        <!--<span>2014-04-01 13:33</span>-->
+		<!--<a class="respone" onclick='addDoc(this);'>回复</a>-->
+            <!--&lt;!&ndash;<div class="is-respones"><div class="respones"><textarea class="texr" name="" id="" cols="37" defaultvalue="回复,文字不超过255个字符" ocusin="IME.enabled = true;"></textarea></div><a class="submit">确定</a></div>&ndash;&gt;-->
+        <!--</div>-->
+ <!--</li>-->
+  <!--</ul>-->
+
+</scroll>
+
+<div id="respones" style="display: none"><div class="respones"><textarea class="texr" name="" id="" cols="37" defaultvalue="回复,文字不超过255个字符" ocusin="IME.enabled = true;"></textarea></div><a class="submit">确定</a></div>
+<script>
+//refresher.init({
+//	id:"wrapper",//<------------------------------------------------------------------------------------┐
+//	pullDownAction:function(){return ;},
+//	pullUpAction:Load
+//	});
+//var generatedCount = 0;
+// $(window).scroll(function(){
+//        if($(document).scrollTop()>=$(document).height()-$(window).height()){
+//
+//                 var  pullUpEl=$(".pullUpLabel");
+//                             pullUpEl.addClass("loading");
+//                            pullUpEl.removeClass("flip");
+//                            pullUpEl.innerHTML = 'Loading...';
+//                            $('.loader').css('display', "block");
+//                            pullUpEl.css('lineHeight ',"20px");
+//                           Load();
+//        }
+//
+//
+//
+//    });
+//function Load() {
+//	setTimeout(function () {// <-- Simulate network congestion, remove setTimeout from production!
+//        $("#respones").css("display","none");
+//        $("#wrapper ul").append( "<li ><div  name='contents' style='border: 1px solid #D1D0D0;margin-top: 20px;height: auto;border-radius: 10px;'>"+
+//                            '<h5 style="color:red">西风笑</h5>'+
+//                             "<p>加载内容</p>"+
+//                             "<span>2014-04-01 13:33</span>"+
+//                            '<a class="respone" onclick="addDoc(this);">回复</a>'+
+//                            "</div></li>"
+//                );
+//		wrapper.refresh();/****remember to refresh after action completed！！！   ---id.refresh(); --- ****/
+//
+//	}, 1000);
+//}
+
+
+
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+
+</div>
+</body>
+</html>
